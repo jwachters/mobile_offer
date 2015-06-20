@@ -1,5 +1,6 @@
 require 'digest/sha1'
 require 'json'
+require 'net/http'
 
 class MobileOfferService
   API_URI = 'http://api.sponsorpay.com/feed/v1/offers.json'
