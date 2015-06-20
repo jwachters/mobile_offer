@@ -7,4 +7,5 @@ gem 'rack'
 
 group :test do
   gem 'capybara'
+  gem 'webmock'
 end

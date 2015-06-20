@@ -1,4 +1,4 @@
-<h1>Mobile offer</h1>
+<h1>Mobile offers</h1>
 <p>Fill in the following parameters to get your mobile offers</p>
 <form action="/mobile_offers">
   <% if @request_invalid %>
@@ -20,5 +20,5 @@
 </form>
 
 <% if @request_successful %>
-  <p>Success</p>
+  <%= yield %>
 <% end %>

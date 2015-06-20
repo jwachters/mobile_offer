@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.3.8)
     capybara (1.1.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -10,6 +11,8 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     ffi (1.9.3)
     mime-types (2.6.1)
     mini_portile (0.6.2)
@@ -22,6 +25,7 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rubyzip (1.1.0)
+    safe_yaml (1.0.4)
     selenium-webdriver (2.38.0)
       childprocess (>= 0.2.5)
       multi_json (~> 1.0)
@@ -32,6 +36,9 @@ GEM
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
     tilt (1.4.1)
+    webmock (1.21.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
     websocket (1.0.7)
     xpath (0.1.4)
       nokogiri (~> 1.3)
@@ -43,3 +50,4 @@ DEPENDENCIES
   capybara
   rack
   sinatra
+  webmock
