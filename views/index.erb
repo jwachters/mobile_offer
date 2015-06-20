@@ -6,19 +6,19 @@
   <% end %>
   <p>
     <label for="uid">uid</label>
-    <input type="text" name="uid" required="true">
+    <input type="text" name="uid" value="<%= params[:uid]%>" required="true">
   </p>
   <p>
     <label for="pub0">pub0</label>
-    <input type="text" name="pub0">
+    <input type="text" name="pub0" value="<%= params[:pub0] %>">
   </p>
   <p>
     <label for="page">page</label>
-    <input type="text" name="page">
+    <input type="text" name="page" value="<%= params[:page] %>">
   </p>
   <button type="submit">Request</button>
 </form>
 
-<% if @request_successful %>
+<% if @mobile_offer_service %>
   <%= yield %>
 <% end %>

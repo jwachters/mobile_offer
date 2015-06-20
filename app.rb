@@ -1,4 +1,5 @@
 require 'sinatra'
+require './services/mobile_offer_service'
 
 class MobileOfferApp < Sinatra::Base
   get '/' do
@@ -10,8 +11,7 @@ class MobileOfferApp < Sinatra::Base
       @request_invalid = true
       render_index
     else
-      @request_successful = true
-      render_offers(get_offers)
+      render_offers
     end
   end
 
@@ -21,12 +21,16 @@ class MobileOfferApp < Sinatra::Base
     erb :index
   end
 
-  def render_offers(response)
-    case response['code']
+  def render_offers
+    @mobile_offer_service = MobileOfferService.new(permitted_params)
+    @mobile_offers = @mobile_offer_service.response_as_json
+    case @mobile_offers['code']
       when 'NO_CONTENT'
         render_index_with_partial(:no_content)
       when 'OK'
-        render_index_with_partial(:offers)
+        render_index_with_partial(:mobile_offers)
+      else
+        render_index_with_partial(:api_error)
     end
   end
 
@@ -34,9 +38,7 @@ class MobileOfferApp < Sinatra::Base
     erb partial, layout: :index
   end
 
-  def get_offers
-    uri = URI('http://api.sponsorpay.com/feed/v1/offers.json')
-    response = Net::HTTP.get_response(uri)
-    JSON.parse(response.body)
+  def permitted_params
+    { uid: params[:uid], pub0: params[:pub0], page: params[:page] }
   end
 end

@@ -1,0 +1,14 @@
+<table class="mobile_offers">
+  <tr>
+    <th>Title</th>
+    <th>Thumbnail low resolution url</th>
+    <th>Payout</th>
+  </tr>
+  <% @mobile_offers['offers'].each do |mobile_offer| %>
+    <tr>
+      <td><%= mobile_offer['title'] %></td>
+      <td><%= mobile_offer['thumbnail']['lowres'] %></td>
+      <td><%= mobile_offer['payout']%></td>
+    </tr>
+  <% end %>
+</table>
