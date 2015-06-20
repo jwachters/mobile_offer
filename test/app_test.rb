@@ -1,23 +1,53 @@
+ENV['RACK_ENV'] = 'test'
+
 require './app'
+require 'capybara'
+require 'capybara/dsl'
 require 'test/unit'
-require 'rack/test'
+
 
 class MyAppTest < Test::Unit::TestCase
-  include Rack::Test::Methods
+  include Capybara::DSL
 
-  def app
-    MobileOfferApp
+  INDEX_TITLE = 'Mobile offer'
+
+  def setup
+    Capybara.app = MobileOfferApp
   end
 
-  def test_get_index_returns_a_title
-    get '/'
-    assert_includes last_response.body, '<h1>Mobile offer</h1>'
+  def test_visit_index_returns_a_title
+    visit '/'
+    assert page.has_content? INDEX_TITLE
   end
 
-  def test_get_index_returns_3_input_fields
-    get '/'
-    assert_includes last_response.body, '<input type="text" name="uid">'
-    assert_includes last_response.body, '<input type="text" name="pub0">'
-    assert_includes last_response.body, '<input type="text" name="page">'
+  def test_visit_index_returns_a_form_to_get_mobile_offers
+    visit '/'
+    assert page.has_selector? 'form[action="/mobile_offers"]'
+    assert page.has_selector? 'input[type="text"][name="uid"]'
+    assert page.has_selector? 'input[type="text"][name="pub0"]'
+    assert page.has_selector? 'input[type="text"][name="page"]'
+    assert page.has_selector? 'button[type="submit"]'
+  end
+
+  def test_request_mobile_offers_without_parameters_to_get_mobile_offers
+    visit '/'
+    click_on 'Request'
+
+    assert page.has_content? INDEX_TITLE
+    assert page.has_content? "The parameter 'uid' is required"
+  end
+
+  def test_request_mobile_offers_with_all_parameters_filled_in
+    visit '/'
+    fill_in 'uid', :with => 'player1'
+    fill_in 'pub0', :with => 'campaign2'
+    fill_in 'page', :with => '1'
+    click_on 'Request'
+
+    assert page.has_content? INDEX_TITLE
+    assert page.has_selector? 'table.offers'
+    assert page.has_content? 'Title'
+    assert page.has_content? 'Thumbnail lowres'
+    assert page.has_content? 'Payout'
   end
 end

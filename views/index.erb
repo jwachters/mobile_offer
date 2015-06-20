@@ -1,9 +1,12 @@
 <h1>Mobile offer</h1>
 <p>Fill in the following parameters to get your mobile offers</p>
-<form>
+<form action="/mobile_offers">
+  <% if @request_invalid %>
+    <p class="warning">The parameter 'uid' is required</p>
+  <% end %>
   <p>
     <label for="uid">uid</label>
-    <input type="text" name="uid">
+    <input type="text" name="uid" required="true">
   </p>
   <p>
     <label for="pub0">pub0</label>
@@ -15,3 +18,7 @@
   </p>
   <button type="submit">Request</button>
 </form>
+
+<% if @request_successful %>
+  <p>Success</p>
+<% end %>
