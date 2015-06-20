@@ -1,4 +1,7 @@
-class MyAppTest < Test::Unit::TestCase
+require './test/test_helper.rb'
+require './services/mobile_offer_service'
+
+class MobileOfferServiceTest < Test::Unit::TestCase
   def test_get_response_with_valid_params_returns_offers_and_status_200
     stub_mobile_offers_request(MOBILE_OFFERS, 200)
 

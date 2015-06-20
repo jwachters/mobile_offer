@@ -5,6 +5,7 @@ require 'capybara/dsl'
 require 'test/unit'
 require 'webmock/test_unit'
 require 'json'
+require 'timecop'
 
 WebMock.disable_net_connect!(allow_localhost: true)
 

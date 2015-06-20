@@ -7,11 +7,11 @@ class MobileOfferApp < Sinatra::Base
   end
 
   get '/mobile_offers' do
-    if params[:uid].empty?
+    if uid_filled_id
+      render_offers
+    else
       @request_invalid = true
       render_index
-    else
-      render_offers
     end
   end
 
@@ -40,5 +40,9 @@ class MobileOfferApp < Sinatra::Base
 
   def permitted_params
     { uid: params[:uid], pub0: params[:pub0], page: params[:page] }
+  end
+
+  def uid_filled_id
+    !params[:uid].nil? && !params[:uid].empty?
   end
 end
