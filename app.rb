@@ -2,6 +2,6 @@ require 'sinatra'
 
 class MobileOfferApp < Sinatra::Base
   get '/' do
-    "Mobile offer"
+    erb :index
   end
 end
