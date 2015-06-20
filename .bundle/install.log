@@ -1,0 +1,6 @@
+# Logfile created on 2015-06-20 11:44:26 +0200 by logger.rb/41954
+I, [2015-06-20T11:44:26.927858 #4674]  INFO -- : 0:  rack (1.6.2) from /Users/jefw/.rvm/gems/ruby-2.0.0-p353/specifications/rack-1.6.2.gemspec
+I, [2015-06-20T11:44:26.928203 #4674]  INFO -- : 0:  rack-protection (1.5.0) from /Users/jefw/.rvm/gems/ruby-2.0.0-p353/specifications/rack-protection-1.5.0.gemspec
+I, [2015-06-20T11:44:26.928437 #4674]  INFO -- : 0:  tilt (1.4.1) from /Users/jefw/.rvm/gems/ruby-2.0.0-p353/specifications/tilt-1.4.1.gemspec
+I, [2015-06-20T11:44:26.928668 #4674]  INFO -- : 0:  sinatra (1.4.6) from /Users/jefw/.rvm/gems/ruby-2.0.0-p353/specifications/sinatra-1.4.6.gemspec
+I, [2015-06-20T11:44:26.928894 #4674]  INFO -- : 0:  bundler (1.5.1) from /Users/jefw/.rvm/gems/ruby-2.0.0-p353@global/specifications/bundler-1.5.1.gemspec
