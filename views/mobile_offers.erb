@@ -1,9 +1,9 @@
 <table class="mobile_offers">
-  <tr>
+  <thead><tr>
     <th>Title</th>
     <th>Thumbnail low resolution url</th>
     <th>Payout</th>
-  </tr>
+  </tr></thead>
   <% @mobile_offers['offers'].each do |mobile_offer| %>
     <tr>
       <td><%= mobile_offer['title'] %></td>

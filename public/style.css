@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+  margin: 10px 16px;
+}
+
+form label {
+  display: inline-block;
+  width: 60px;
+}
+
+.warning {
+  display: inline-block;
+  padding: 4px 6px;
+  border: 1px solid rgb(245, 125, 121);
+  background-color: rgb(255, 186, 186);
+}
+
+table.mobile_offers {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #cbcbcb;
+}
+
+table.mobile_offers thead {
+  background-color: #e0e0e0;
+  color: #000;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+table.mobile_offers th, table.mobile_offers td {
+  text-align: left;
+  padding: 6px 12px;
+  border-bottom: 1px solid #cbcbcb;
+  font-size: inherit;
+  margin: 0;
+  overflow: visible;
+}
